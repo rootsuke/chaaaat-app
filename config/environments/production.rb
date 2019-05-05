@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Eased request origins restrictation of WebSocket 
+  config.action_cable.allowed_request_origins = [ /https?:\/\/.*/ ]
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
