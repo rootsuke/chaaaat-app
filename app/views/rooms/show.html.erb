@@ -1,3 +1,5 @@
+<%= link_to "←back", root_path %>
+
 <h1><%= @room.name %></h1>
 <div id="messages" data-room_id="<%= @room.id %>">
   <%= render @messages %>
