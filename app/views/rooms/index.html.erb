@@ -15,3 +15,11 @@
     <% end %>
   </ul>
 </div>
+
+<% if user_signed_in? %>
+  <%= form_for(@room) do |f|%> 
+    <%= f.label :name, "room name :" %>
+    <%= f.text_field :name %>
+    <%= f.submit "create new room" %>
+  <% end %>
+<% end %>
