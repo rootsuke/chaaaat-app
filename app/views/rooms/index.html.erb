@@ -1,17 +1,20 @@
-<h1>Chat Rooms</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Chat Rooms</h1>
+    <div>
+      <ul>
+        <% @rooms.each do |room| %>
+          <li><%= link_to room.name, room_path(room) %></li>
+        <% end %>
+      </ul>
+    </div>
 
-<div>
-  <ul>
-    <% @rooms.each do |room| %>
-      <li><%= link_to room.name, room_path(room) %></li>
+    <% if user_signed_in? %>
+      <%= form_for(@room) do |f|%> 
+        <%= f.label :name, "room name :" %>
+        <%= f.text_field :name %>
+        <%= f.submit "create new room", class: "btn btn-success" %>
+      <% end %>
     <% end %>
-  </ul>
+  </div>
 </div>
-
-<% if user_signed_in? %>
-  <%= form_for(@room) do |f|%> 
-    <%= f.label :name, "room name :" %>
-    <%= f.text_field :name %>
-    <%= f.submit "create new room" %>
-  <% end %>
-<% end %>

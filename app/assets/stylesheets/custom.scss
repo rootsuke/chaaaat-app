@@ -1,6 +1,42 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding-top: 60px;
+  padding-bottom: 90px;
+}
+
+li {
+  list-style: none;
+}
+
+.navbar-default {
+  background-color: white;
+  border: none;
+}
+
+.message {
+  border-top: 1px solid #e8e8e8;
+  margin-bottom: 5px;
+  padding: 0 10px;
+  overflow: hidden;
+  .name-and-content {
+    display: flex;
+    .content {
+      margin-left: 10px;
+    }
+  }
+  .created_at {
+    float: right;
+    color: gray;
+  }
+}
+
+textarea {
+  height: 80px;
+  width: 100%;
 }
