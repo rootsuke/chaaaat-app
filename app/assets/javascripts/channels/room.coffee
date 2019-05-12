@@ -17,3 +17,4 @@ $(document).on 'keypress', '[data-behavior~=room_speaker]', (e) ->
     App.room.speak e.target.value
     e.target.value = ''
     e.preventDefault()
+    $('html,body').animate({scrollTop:$(document).height()})
