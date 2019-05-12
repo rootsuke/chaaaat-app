@@ -12,8 +12,8 @@ document.addEventListener 'turbolinks:load', ->
     speak: (message) ->
       @perform 'speak', message: message
 
-$(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
-  if event.keyCode is 13
-    App.room.speak event.target.value
-    event.target.value = ''
-    event.preventDefault()
+$(document).on 'keypress', '[data-behavior~=room_speaker]', (e) ->
+  if e.keyCode is 13 && !e.shiftKey
+    App.room.speak e.target.value
+    e.target.value = ''
+    e.preventDefault()

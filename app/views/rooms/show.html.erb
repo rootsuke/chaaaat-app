@@ -1,11 +1,11 @@
-<%= link_to "←back", root_path %>
-
-<h1><%= @room.name %></h1>
-<div id="messages" data-room_id="<%= @room.id %>">
-  <%= render @messages %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= @room.name %></h1>
+    <div id="messages" data-room_id="<%= @room.id %>">
+      <%= render @messages %>
+    </div>
+    <div class="form-area">
+      <textarea type="text" data-behavior="room_speaker"></textarea>
+    </div>
+  </div>
 </div>
-
-<form>
-  <label>Say something:</label><br>
-  <input type="text" data-behavior="room_speaker">
-</form>
