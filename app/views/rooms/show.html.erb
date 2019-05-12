@@ -4,8 +4,15 @@
     <div id="messages" data-room_id="<%= @room.id %>">
       <%= render @messages %>
     </div>
-    <div class="form-area">
+  </div>
+</div>
+
+<div class="navbar navbar-fixed-bottom navbar-default">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
       <textarea type="text" data-behavior="room_speaker"></textarea>
+      </div>
     </div>
   </div>
 </div>
