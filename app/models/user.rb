@@ -9,4 +9,12 @@ class User < ApplicationRecord
   has_many :rooms, through: :room_users
 
   validates :name, presence: true
+
+  def join_to_room(room)
+    self.rooms << room
+  end
+
+  def joined?(room)
+    self.rooms.include?(room)
+  end
 end
