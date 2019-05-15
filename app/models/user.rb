@@ -5,8 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :messages, dependent: :destroy
+
   has_many :room_users, dependent: :destroy
   has_many :rooms, through: :room_users
+
+  has_many :frend_requests, foreign_key: :requester_id, dependent: :destroy
+  has_many :frends, through: :frend_requests, source: :reciever
 
   validates :name, presence: true
 
