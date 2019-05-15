@@ -1,0 +1,2 @@
+class FrendRequest < ApplicationRecord
+end
