@@ -21,4 +21,13 @@ class User < ApplicationRecord
   def joined?(room)
     self.rooms.include?(room)
   end
+
+  def send_frend_request(user)
+    self.frends << user
+  end
+
+  def approve_frend_request(frend_request)
+    frend_request.update_attribute(:approved, true)
+    self.frend_requests.create(reciever: frend_request.requester, approved: true)
+  end
 end
