@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :rooms, through: :room_users
 
   has_many :frend_requests, foreign_key: :requester_id, dependent: :destroy
-  has_many :frends, through: :frend_requests, source: :reciever
+  has_many :frends, -> { where(frend_requests: { approved: true }) }, through: :frend_requests, source: :reciever
 
   validates :name, presence: true
 
@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def send_frend_request(user)
-    self.frends << user
+    self.frend_requests.create(reciever: user)
   end
 
   def approve_frend_request(frend_request)
