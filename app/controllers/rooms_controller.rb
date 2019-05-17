@@ -8,12 +8,13 @@ class RoomsController < ApplicationController
   end
 
   def create
-    room = Room.create(room_params)
-    if room.save
+    @room = Room.create(room_params)
+    if @room.save
       flash[:success] = "room created!"
-      current_user.join_to_room(room)
+      current_user.join_to_room(@room)
       redirect_to root_url
     else
+      @rooms = Room.all
       render "rooms/index"
     end
   end
