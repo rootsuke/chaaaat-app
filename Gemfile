@@ -32,6 +32,10 @@ gem 'font-awesome-rails'
 gem 'will_paginate', '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 
+# uploading images
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
+
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
@@ -79,6 +83,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'fog', 1.42
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
