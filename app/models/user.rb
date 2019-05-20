@@ -15,6 +15,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :user_id, presence: true, uniqueness: true
 
+  mount_uploader :picture, PictureUploader
+
   def join_to_room(room)
     self.rooms << room
   end
