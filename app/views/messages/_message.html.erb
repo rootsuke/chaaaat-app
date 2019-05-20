@@ -1,7 +1,12 @@
 <div class="message">
-  <div class="name-and-content">
-    <h4 class="name"><%= message.user.name %>:</h4>
-    <%= simple_format(message.content, {class: "content"}, wrapper_tag: :h4) %>
+  <div class="flex">
+    <div class="picture">
+      <%= image_tag message.user.picture.url %>
+    </div>
+    <div class="name-and-content">
+      <h4 class="name"><%= message.user.name %>:</h4>
+      <%= simple_format(message.content, {class: "content"}, wrapper_tag: :h4) %>
+    </div>
   </div>
   <span class="created_at">posted <%= time_ago_in_words(message.created_at) %> ago.</span>
 </div>
