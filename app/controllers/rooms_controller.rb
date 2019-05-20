@@ -24,7 +24,7 @@ class RoomsController < ApplicationController
     unless current_user.joined?(@room)
       current_user.join_to_room(@room)
     end
-    @messages = @room.messages.all
+    @messages = @room.messages.includes(:user)
   end
 
   def members
