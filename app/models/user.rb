@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :frends, -> { where(frend_requests: { approved: true }) }, through: :frend_requests, source: :reciever
 
   validates :name, presence: true
+  validates :user_id, presence: true, uniqueness: true
 
   def join_to_room(room)
     self.rooms << room
