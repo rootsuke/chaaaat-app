@@ -1,6 +1,6 @@
 <div class="user flex">
   <div class="picture">
-    <%= image_tag user.picture.url %>
+    <%= image_tag user.picture.thumb.url, class: "radius" %>
   </div>
   <div class="name">
     <h4><%= link_to user.name, user_path(user.user_id) %></h4>

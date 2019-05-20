@@ -1,7 +1,7 @@
 <div class="message">
   <div class="flex">
     <div class="picture">
-      <%= image_tag message.user.picture.url %>
+      <%= image_tag message.user.picture.thumb.url, class: "radius" %>
     </div>
     <div class="name-and-content">
       <h4 class="name"><%= message.user.name %>:</h4>
