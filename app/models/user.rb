@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many :room_users, dependent: :destroy
   has_many :rooms, through: :room_users
 
-  has_many :frend_requests, foreign_key: :requester_id, dependent: :destroy
-  has_many :frends, -> { where(frend_requests: { approved: true }) }, through: :frend_requests, source: :reciever
+  has_many :friend_requests, foreign_key: :requester_id, dependent: :destroy
+  has_many :friends, -> { where(friend_requests: { approved: true }) }, through: :friend_requests, source: :reciever
 
   validates :name, presence: true
   validates :user_id, presence: true, uniqueness: true
@@ -23,12 +23,12 @@ class User < ApplicationRecord
     self.rooms.include?(room)
   end
 
-  def send_frend_request(user)
-    self.frend_requests.create(reciever: user)
+  def send_friend_request(user)
+    self.friend_requests.create(reciever: user)
   end
 
-  def approve_frend_request(frend_request)
-    frend_request.update_attribute(:approved, true)
-    self.frend_requests.create(reciever: frend_request.requester, approved: true)
+  def approve_friend_request(friend_request)
+    friend_request.update_attribute(:approved, true)
+    self.friend_requests.create(reciever: friend_request.requester, approved: true)
   end
 end
