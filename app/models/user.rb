@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :user_id, presence: true, uniqueness: true
+  validate  :picture_size
 
   mount_uploader :picture, PictureUploader
 
@@ -33,4 +34,12 @@ class User < ApplicationRecord
     friend_request.update_attribute(:approved, true)
     self.friend_requests.create(reciever: friend_request.requester, approved: true)
   end
+
+  private
+
+    def picture_size
+      if picture_size > 5.megabytes
+        errors.add(:picture, "should be less than 5MB")
+      end
+    end
 end
