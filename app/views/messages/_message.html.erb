@@ -1,12 +1,16 @@
 <div class="message">
   <div class="flex">
-    <div class="picture">
-      <%= image_tag message.user.picture.thumb.url, class: "radius" %>
-    </div>
-    <div class="name-and-content">
-      <h4 class="name"><%= message.user.name %>:</h4>
-      <%= simple_format(message.content, {class: "content"}, wrapper_tag: :h4) %>
-    </div>
+    <a href="<%= user_path(message.user.user_id) %>">
+      <div class="picture">
+        <%= image_tag message.user.picture.thumb.url, class: "radius", width: "40px" %>
+      </div>
+    </a>
+      <div class="name-and-content">
+        <a href="<%= user_path(message.user.user_id) %>">
+          <h4 class="name"><%= message.user.name %>:</h4>
+        </a>
+        <%= simple_format(message.content, {class: "content"}, wrapper_tag: :h4) %>
+      </div>
   </div>
   <span class="created_at"><%= l(message.created_at) %></span>
 </div>
