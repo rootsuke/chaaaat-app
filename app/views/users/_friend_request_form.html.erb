@@ -1,0 +1,9 @@
+<div id="friend_request_form">
+  <% if current_user.friend?(@user) %>
+    <%= render "friend_or_delete" %>
+  <% elsif current_user.waiting_for_approval?(@user) %>
+    <%= render "wait_or_cancel" %>
+  <% else %>
+    <%= render "request" %>
+  <% end %>
+</div>

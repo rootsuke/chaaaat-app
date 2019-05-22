@@ -35,6 +35,20 @@ class User < ApplicationRecord
     self.friend_requests.create(reciever: friend_request.requester, approved: true)
   end
 
+  def delete_from_friends(user)
+    FriendRequest.where(requester_id: self.id, reciever_id: user.id).
+      or(FriendRequest.where(requester_id: user.id, reciever_id: self.id)).
+        each { |f| f.destroy }
+  end
+
+  def friend?(user)
+    self.friends.include?(user)
+  end
+
+  def waiting_for_approval?(user)
+    self.friend_requests.exists?(reciever_id: user.id, approved: false)
+  end
+
   private
 
     def picture_size

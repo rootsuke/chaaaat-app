@@ -1,0 +1,4 @@
+<h4>Already sent friend request.</h4>
+<%= form_with(model: current_user.friend_requests.find_by(reciever_id: @user.id), method: :delete) do |f| %>
+  <%= f.submit "Cancel the Request", class: "btn btn-danger", id: "cancel-btn" %>
+<% end %>
