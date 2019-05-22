@@ -1,0 +1,4 @@
+<li class="room">
+  <h4><%= link_to "#{room.name} (#{room.messages.count})", room_path(room.name) %></h4>
+  <%= render_latest_message(room) %>
+</li>

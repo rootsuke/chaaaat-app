@@ -3,13 +3,9 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h1>Chat Rooms</h1>
-    <div>
-      <ul>
-        <% @rooms.each do |room| %>
-          <li><%= link_to room.name, room_path(room.name) %></li>
-        <% end %>
-      </ul>
-    </div>
+    <ul id="rooms">
+      <%= render @rooms %>
+    </ul>
 
     <% if user_signed_in? %>
       <%= form_for(@room) do |f|%> 
