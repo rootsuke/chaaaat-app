@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <h1>Friends (<%= current_user.friends.count %>)</h1>
+    <h1>Friends</h1>
     <h4>Your Profile</h4>
     <div class="user flex">
       <div class="picture">
@@ -8,8 +8,12 @@
       </div>
       <h4 class="name"><%= link_to current_user.name, user_path(current_user.user_id) %></h4>
     </div>
+    <div id="requests">
+      <h4>New Friend Requests (<%= @friend_requests.count %>)</h4>
+      <%= render @friend_requests if @friend_requests.present? %>
+    </div>
     <div id="users">
-      <h4>Your Friends</h4>
+      <h4>Your Friends (<%= @users.count %>)</h4>
       <%= render @users %>
     </div>
   </div>
