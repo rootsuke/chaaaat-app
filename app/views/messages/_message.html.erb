@@ -1,8 +1,8 @@
 <div class="message">
   <div class="flex">
     <a href="<%= user_path(message.user.user_id) %>">
-      <div class="picture">
-        <%= image_tag message.user.picture.thumb.url, class: "radius", width: "40px" %>
+      <div class="user-icon">
+        <%= image_tag message.user.icon.thumb.url, class: "radius", width: "40px" %>
       </div>
     </a>
       <div class="name-and-content">

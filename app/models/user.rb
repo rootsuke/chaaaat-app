@@ -14,9 +14,9 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :user_id, presence: true, uniqueness: true, length: { maximum: 15 }
-  validate  :picture_size
+  validate  :icon_size
 
-  mount_uploader :picture, PictureUploader
+  mount_uploader :icon, UserIconUploader
 
   def join_to_room(room)
     self.rooms << room
@@ -55,9 +55,9 @@ class User < ApplicationRecord
 
   private
 
-    def picture_size
-      if picture.size > 5.megabytes
-        errors.add(:picture, "should be less than 5MB")
+    def icon_size
+      if icon.size > 5.megabytes
+        errors.add(:icon, "should be less than 5MB")
       end
     end
 end

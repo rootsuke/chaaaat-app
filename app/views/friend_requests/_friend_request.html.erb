@@ -1,6 +1,6 @@
 <div class="user flex">
-  <div class="picture">
-    <%= image_tag friend_request.requester.picture.thumb.url, class: "radius", width: "40px" %>
+  <div class="user-icon">
+    <%= image_tag friend_request.requester.icon.thumb.url, class: "radius", width: "40px" %>
   </div>
   <div class="name">
     <h4><%= link_to friend_request.requester.name, user_path(friend_request.requester.user_id) %></h4>

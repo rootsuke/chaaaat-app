@@ -3,8 +3,8 @@
     <h1>Friends</h1>
     <h4>Your Profile</h4>
     <div class="user flex">
-      <div class="picture">
-        <%= image_tag current_user.picture.thumb.url, class: "radius", width: "40px" %>
+      <div class="user-icon">
+        <%= image_tag current_user.icon.thumb.url, class: "radius", width: "40px" %>
       </div>
       <h4 class="name"><%= link_to current_user.name, user_path(current_user.user_id) %></h4>
     </div>

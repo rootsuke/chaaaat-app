@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_20_101010) do
+ActiveRecord::Schema.define(version: 2019_05_23_130917) do
 
   create_table "friend_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "requester_id"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_101010) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "user_id"
-    t.string "picture"
+    t.string "icon"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["user_id"], name: "index_users_on_user_id"
