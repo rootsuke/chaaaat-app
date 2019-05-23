@@ -1,3 +1,3 @@
-<%= form_with(model: friend_request) do |f| %>
+<%= form_with(model: friend_request, id: "approve_btn") do |f| %>
   <%= f.submit "Approve Request", class: "btn btn-success", id: "request-btn" %>
 <% end %>

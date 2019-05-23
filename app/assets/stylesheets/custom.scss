@@ -18,6 +18,11 @@ li {
   display: flex;
 }
 
+.flex-column {
+  display: flex;
+  flex-flow: column;
+}
+
 .radius {
   border-radius: 50%;
 }
@@ -41,15 +46,16 @@ li {
 
 .message {
   border-top: 1px solid #e8e8e8;
-  padding: 10px;
+  padding: 5px;
   overflow: hidden;
   .user-icon {
+    align-items: flex-start;
     margin-right: 10px;
   }
   .name-and-content {
     display: flex;
     .content {
-      margin-left: 10px;
+      margin: 5px 0 5px 10px;
     }
   }
   .created_at {
@@ -96,4 +102,8 @@ textarea {
   .settings {
     float: right;
   }
+}
+
+#approve_btn {
+  margin-left: auto;
 }
