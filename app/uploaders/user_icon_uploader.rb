@@ -2,8 +2,11 @@ class UserIconUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process resize_to_limit: [120, 120]
-  version :thumb do
+  process resize_to_limit: [300, 300]
+  version :middle do
+    process resize_to_fill: [120, 120]
+  end
+  version :small do
     process resize_to_fill: [40, 40]
   end
 
