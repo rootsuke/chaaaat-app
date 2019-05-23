@@ -1,5 +1,5 @@
 <h4>Friend</h4>
-<%= form_with(model: current_user.friend_requests.find_by(reciever_id: @user.id), method: :delete, local: true) do |f| %>
+<%= form_with(model: current_user.friend_requests.find_by(reciever_id: @user.id), method: :delete) do |f| %>
   <%= hidden_field_tag(:friend_id, @user.id) %>
   <%= f.submit "Delete from the Friend", class: "btn btn-danger", id: "delete-btn" %>
 <% end %>
