@@ -4,4 +4,8 @@ class FriendRequest < ApplicationRecord
 
   validates :requester_id, presence: true
   validates :reciever_id,  presence: true
+
+  scope :new_request_to, -> (user) do
+    where(reciever_id: user.id, approved: false).includes(:requester)
+  end
 end

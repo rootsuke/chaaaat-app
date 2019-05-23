@@ -9,6 +9,6 @@ class UsersController < ApplicationController
   def friends
     @user = User.find_by(user_id: params[:user_id])
     @users = @user.friends.order(name: :asc)
-    @friend_requests = FriendRequest.where(reciever_id: current_user.id, approved: false).includes(:requester)
+    @friend_requests = FriendRequest.new_request_to(current_user)
   end
 end
