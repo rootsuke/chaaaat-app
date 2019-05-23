@@ -12,4 +12,10 @@ class FriendRequestsController < ApplicationController
     current_user.delete_from_friends(user)
     redirect_to user_path(user.user_id)
   end
+
+  def update
+    friend_request = FriendRequest.find(params[:id])
+    current_user.approve_friend_request(friend_request)
+    redirect_to friends_user_path(current_user.user_id)
+  end
 end

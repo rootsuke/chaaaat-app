@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     get :search, on: :collection
     get :friends, on: :member
   end
-  resources :friend_requests, only: %i(create destroy)
+  resources :friend_requests, only: %i(create destroy update)
 end
