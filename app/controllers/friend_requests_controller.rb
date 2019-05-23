@@ -16,6 +16,6 @@ class FriendRequestsController < ApplicationController
   def update
     friend_request = FriendRequest.find(params[:id])
     current_user.approve_friend_request(friend_request)
-    redirect_to friends_user_path(current_user.user_id)
+    redirect_back(fallback_location: root_path)
   end
 end

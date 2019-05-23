@@ -3,6 +3,8 @@
     <%= render "friend_or_delete" %>
   <% elsif current_user.waiting_for_approval?(@user) %>
     <%= render "wait_or_cancel" %>
+  <% elsif current_user.recieved_request_from?(@user) %>
+    <%= render "approve_request", friend_request: @user.friend_requests.find_by(reciever_id: current_user.id, approved: false) %>
   <% else %>
     <%= render "request" %>
   <% end %>

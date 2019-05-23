@@ -49,6 +49,10 @@ class User < ApplicationRecord
     self.friend_requests.exists?(reciever_id: user.id, approved: false)
   end
 
+  def recieved_request_from?(user)
+    user.friend_requests.exists?(reciever_id: self.id, approved: false)
+  end
+
   private
 
     def picture_size
