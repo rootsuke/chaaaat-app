@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_many :friend_requests, foreign_key: :requester_id, dependent: :destroy
   has_many :friends, -> { where(friend_requests: { approved: true }) }, through: :friend_requests, source: :reciever
 
-  validates :name, presence: true
-  validates :user_id, presence: true, uniqueness: true
+  validates :name, presence: true, length: { maximum: 20 }
+  validates :user_id, presence: true, uniqueness: true, length: { maximum: 15 }
   validate  :picture_size
 
   mount_uploader :picture, PictureUploader
