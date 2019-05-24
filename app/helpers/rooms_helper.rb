@@ -1,10 +1,11 @@
 module RoomsHelper
-  def render_latest_message(room)
+  def latest_message(room)
     msg = room.messages.last
-    if msg
-      message = content_tag(:h4, msg.content)
-      message += content_tag(:span, l(msg.created_at))
-      message
-    end
+    content_tag(:h4, msg.content, class: "content") if msg.present?
+  end
+
+  def posted_time_of_latest_message(room)
+    msg = room.messages.last
+    content_tag(:span, l(msg.created_at)) if msg.present?
   end
 end

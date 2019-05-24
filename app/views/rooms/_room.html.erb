@@ -1,4 +1,12 @@
-<div class="room">
-  <h4><%= link_to "#{room.name} (#{room.messages.count})", room_path(room.name) %></h4>
-  <%= render_latest_message(room) %>
-</div>
+<%= link_to room_path(room.name) do %>
+  <div class="room flex">
+    <div class="room-icon flex">
+      <%= image_tag room.icon.small.url, class: "radius", width: "60px", height: "60px" %>
+    </div>
+    <div class="name-and-content flex-column">
+      <h4 class="name"><%= "#{room.name} (#{room.messages.count})" %></h4>
+      <%= latest_message(room) %>
+    </div>
+    <%= posted_time_of_latest_message(room) %>
+  </div>
+<% end %>

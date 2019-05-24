@@ -7,7 +7,7 @@ class RoomIconUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [120, 120]
   end
   version :small do
-    process resize_to_fill: [50, 50]
+    process resize_to_fill: [60, 60]
   end
 
   # Choose what kind of storage to use for this uploader:

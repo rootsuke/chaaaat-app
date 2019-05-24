@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$gray-font: #999999;
+
 * {
   box-sizing: border-box;
 }
@@ -12,6 +14,10 @@ body {
 
 li {
   list-style: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .flex {
@@ -46,7 +52,7 @@ li {
 
 .message {
   border-top: 1px solid #e8e8e8;
-  padding: 5px;
+  padding: 5px 10px;
   overflow: hidden;
   .user-icon {
     align-items: flex-start;
@@ -73,7 +79,25 @@ textarea {
   margin-bottom: 20px;
   .room {
     border-top: 1px solid #e8e8e8;
-
+    height: 65px;
+    .name-and-content {
+      margin-left: 10px;
+      h4 {
+        font-size: 16px;
+      }
+      .name {
+        color: black;
+        margin: 5px 0;
+      }
+      .content {
+        margin-top: 0;
+        color: $gray-font;
+      }
+    }
+    span {
+      margin: 5px 10px 0 auto;
+      color: $gray-font;
+    }
   }
 }
 
