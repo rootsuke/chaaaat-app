@@ -1,9 +1,9 @@
 <div class="message">
   <div class="flex">
     <div class="user-icon flex">
-      <a href="<%= user_path(message.user.user_id) %>">
+      <%= link_to user_path(message.user.user_id) do %>
         <%= image_tag message.user.icon.small.url, class: "radius", width: "40px" %>
-      </a>
+      <% end %>
     </div>
     <div class="name-and-content flex-column">
       <%= link_to message.user.name, user_path(message.user.user_id) %>
