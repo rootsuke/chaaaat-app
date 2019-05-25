@@ -77,8 +77,14 @@ textarea {
 
 #rooms {
   margin-bottom: 20px;
+  a {
+    height: cover;
+    width: cover;
+    :hover {
+      background-color: #f8f8f8;
+    }
+  }
   .room {
-    border-top: 1px solid #e8e8e8;
     height: 65px;
     .name-and-content {
       margin-left: 10px;
@@ -110,9 +116,15 @@ textarea {
 
 #users {
   margin-top: 20px;
+  a {
+    height: cover;
+    width: cover;
+    :hover {
+      background-color: #f8f8f8;
+    }
+  }
   .user {
     padding: 10px;
-    border-top: 1px solid #e8e8e8;
   }
 }
 

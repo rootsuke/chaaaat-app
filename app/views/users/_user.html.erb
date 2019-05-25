@@ -1,8 +1,10 @@
-<div class="user flex">
-  <div class="user-icon">
-    <%= image_tag user.icon.small.url, class: "radius", width: "40px" %>
+<%= link_to user_path(user.user_id) do %>
+  <div class="user flex">
+    <div class="user-icon">
+      <%= image_tag user.icon.small.url, class: "radius", width: "40px" %>
+    </div>
+    <div class="name">
+      <h4><%= user.name %></h4>
+    </div>
   </div>
-  <div class="name">
-    <h4><%= link_to user.name, user_path(user.user_id) %></h4>
-  </div>
-</div>
+<% end %>
