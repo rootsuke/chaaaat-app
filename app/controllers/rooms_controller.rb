@@ -32,6 +32,10 @@ class RoomsController < ApplicationController
     @users = @room.users
   end
 
+  def edit
+    @room = Room.find(params[:id])
+  end
+
   private
 
     def room_params

@@ -33,16 +33,24 @@ a:hover {
   border-radius: 50%;
 }
 
+.center {
+  text-align: center;
+}
+
 .navbar-default {
   background-color: white;
   border: none;
 }
 
 .room-prof {
-  display: flex;
+  justify-content: flex-end;
+  h1 {
+    margin-right: auto;
+    margin-left: 10px;
+  }
   a {
-    margin-left: auto;
     margin-top: auto;
+    margin-right: 10px;
   }
 }
 
