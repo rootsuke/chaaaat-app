@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!, only: %i(show create)
+  before_action :authenticate_user!, except: :index
+  before_action :joined_user?, only: %i(edit update)
+
   def index
     @rooms = Room.all
     if user_signed_in?
@@ -36,9 +38,23 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
 
+  def update
+    if @room.update_attributes(room_params)
+      flash[:success] = "Successfully updated room"
+      redirect_to room_path(@room)
+    else
+      render "edit"
+    end
+  end
+
   private
 
     def room_params
-      params.require(:room).permit(:name)
+      params.require(:room).permit(:name, :icon)
+    end
+
+    def joined_user?
+      @room = Room.find(params[:id])
+      redirect_to root_url unless current_user.joined?(@room)
     end
 end
