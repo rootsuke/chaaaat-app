@@ -20,7 +20,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find_by(name: params[:room_name])
+    @room = Room.find(params[:id])
     unless current_user.joined?(@room)
       current_user.join_to_room(@room)
     end
@@ -28,7 +28,7 @@ class RoomsController < ApplicationController
   end
 
   def members
-    @room = Room.find_by(name: params[:room_name])
+    @room = Room.find(params[:id])
     @users = @room.users
   end
 
