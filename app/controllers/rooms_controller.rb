@@ -1,12 +1,10 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!
   before_action :joined_user?, only: %i(edit update)
 
   def index
-    @rooms = Room.all
-    if user_signed_in?
-      @room = Room.new
-    end
+    @rooms = current_user.rooms.includes(:messages)
+    @room = Room.new
   end
 
   def create
