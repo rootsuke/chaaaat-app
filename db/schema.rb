@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_23_140116) do
+ActiveRecord::Schema.define(version: 2019_05_26_142343) do
 
   create_table "friend_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "requester_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_05_23_140116) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "joined", default: false, null: false
     t.index ["room_id", "user_id"], name: "index_room_users_on_room_id_and_user_id", unique: true
     t.index ["room_id"], name: "index_room_users_on_room_id"
     t.index ["user_id"], name: "index_room_users_on_user_id"
