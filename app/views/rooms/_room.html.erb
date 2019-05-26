@@ -1,13 +1,17 @@
-<%= link_to room_path(room) do %>
-  <div class="room flex">
-    <div class="room-icon flex">
-      <%= image_tag room.icon.small.url, class: "radius", width: "60px", height: "60px" %>
+<div class="room">
+  <%= link_to room_path(room), class: "hover-gray" do %>
+    <div class="main flex">
+      <div class="room-icon flex">
+        <%= image_tag room.icon.small.url, class: "radius", width: "60px", height: "60px" %>
+      </div>
+      <div class="name-and-content flex-column">
+        <h4 class="name"><%= "#{room.name} (#{room.messages.count})" %></h4>
+        <%= latest_message(room) %>
+      </div>
+      <%= posted_time_of_latest_message(room) %>
     </div>
-    <div class="name-and-content flex-column">
-      <h4 class="name"><%= "#{room.name} (#{room.messages.count})" %></h4>
-      <%= latest_message(room) %>
-    </div>
-    <%= posted_time_of_latest_message(room) %>
+  <% end %>
+  <div>
+    <%= link_to "settings", edit_room_path(room) %>
   </div>
-<% end %>
-<%= link_to "settings", edit_room_path(room) %>
+</div>

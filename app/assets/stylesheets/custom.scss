@@ -85,15 +85,15 @@ textarea {
 
 #rooms {
   margin-bottom: 20px;
-  a {
-    height: cover;
+  .hover-gray {
     width: cover;
+    height: cover;
     :hover {
       background-color: #f8f8f8;
     }
   }
   .room {
-    height: 65px;
+    height: 80px;
     .name-and-content {
       margin-left: 10px;
       h4 {
