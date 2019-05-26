@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "rooms#index"
+  root to: "users#friends"
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :rooms do
     get :members, on: :member

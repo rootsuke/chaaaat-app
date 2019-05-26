@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def search
     if params[:search].blank?
       flash[:danger] = "Please enter the user_id."
-      redirect_to friends_user_path(current_user.user_id)
+      redirect_to root_url
     elsif User.exists?(user_id: params[:search])
       redirect_to user_path(params[:search])
     else
