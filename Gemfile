@@ -41,6 +41,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
+# seeds
+gem 'faker'
+
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 # Reduces boot times through caching; required in config/boot.rb

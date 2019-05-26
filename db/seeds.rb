@@ -8,7 +8,7 @@
 
 # users
 5.times do |n|
-  name = "test_#{n}"
+  name = "test#{n+1}"
   email = "#{name}@test.com"
   password = "test123"
   User.create!(name:    name,
@@ -20,7 +20,7 @@ end
 
 # rooms
 5.times do |n|
-  name = "room_#{n}"
+  name = "room_#{n+1}"
   Room.create!(name: name)
 end
 
@@ -28,14 +28,17 @@ end
 users = User.order(:created_at).take(3)
 rooms = Room.order(:created_at).take(3)
 users.each do |user|
-  rooms.each do |room|
-    user.join_to_room(room)
-  end
+  rooms.each { |room| user.join_to_room(room) }
+end
+
+# messages
+5.times do
+  users.each { |user| user.messages.create!(content: Faker::ChuckNorris.fact, room: rooms.first) }
 end
 
 # friends
 user = users.first
-user_friends = users[2..3]
+user_friends = users[1..2]
 user_friends.each do |user_friend|
   user.send_friend_request(user_friend)
   friend_request = FriendRequest.find_by(requester_id: user.id, reciever_id: user_friend.id, approved: false)
