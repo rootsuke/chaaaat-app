@@ -1,0 +1,12 @@
+<div class="approve form">
+  <%= form_with(model: friend_request) do |f| %>
+    <%= f.button content_tag(:i, nil, class: "far fa-check-circle fa-2x"), type: "submit" %>
+  <% end %>
+</div>
+
+<div class="decline form">
+  <%= form_with(model: friend_request, method: :delete) do |f| %>
+    <%= hidden_field_tag(:user_id, friend_request.requester.id) %>
+    <%= f.button content_tag(:i, nil, class: "far fa-times-circle fa-2x"), type: "submit" %>
+  <% end %>
+</div>

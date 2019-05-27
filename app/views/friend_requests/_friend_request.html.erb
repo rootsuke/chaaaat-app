@@ -1,9 +1,16 @@
-<div class="user flex">
-  <div class="user-icon">
-    <%= image_tag friend_request.requester.icon.small.url, class: "radius", width: "40px" %>
+<div class="request">
+  <div class="main">
+    <%= link_to "", user_path(friend_request.requester.user_id), class: "hover-gray" %>
+    <div class="user flex">
+      <div class="user-icon">
+        <%= image_tag friend_request.requester.icon.small.url, class: "radius", width: "40px" %>
+      </div>
+      <div class="name">
+        <h4><%= friend_request.requester.name %></h4>
+      </div>
+      <div class="forms flex">
+        <%= render "friend_requests/approve_or_decline", friend_request: friend_request %>
+      </div>
+    </div>
   </div>
-  <div class="name">
-    <h4><%= link_to friend_request.requester.name, user_path(friend_request.requester.user_id) %></h4>
-  </div>
-  <%= render "users/approve_request", friend_request: friend_request %>
 </div>
