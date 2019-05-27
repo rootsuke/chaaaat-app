@@ -8,9 +8,9 @@ class FriendRequestsController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:friend_id])
+    user = User.find(params[:user_id])
     current_user.delete_from_friends(user)
-    redirect_to user_path(user.user_id)
+    redirect_back(fallback_location: root_path)
   end
 
   def update
