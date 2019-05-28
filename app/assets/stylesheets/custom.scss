@@ -80,6 +80,7 @@ a:hover {
     display: flex;
     .content {
       margin: 5px 0 5px 10px;
+      word-break: normal;
     }
   }
   .created_at {
@@ -96,7 +97,7 @@ textarea {
 #rooms {
   margin-bottom: 20px;
   .room {
-    height: 80px;
+    min-height: 80px;
     .name-and-content {
       margin-left: 10px;
       h4 {
@@ -109,6 +110,7 @@ textarea {
       .content {
         margin-top: 0;
         color: $gray-font;
+        word-break: normal;
       }
     }
     span {
