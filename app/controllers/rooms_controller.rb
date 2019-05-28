@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :joined_user?, only: %i(edit update)
 
   def index
-    @rooms = current_user.rooms.includes(:messages)
+    @rooms = Room.all
     @room = Room.new
   end
 
